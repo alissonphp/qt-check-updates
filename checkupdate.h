@@ -2,7 +2,7 @@
 #define CHECKUPDATE_H
 
 #include <QObject>
-#include <QJsonDocument>
+#include <QJsonObject>
 
 class CheckUpdate : public QObject
 {
@@ -16,7 +16,9 @@ signals:
     void newUpdatesAvailable(bool available);
 
 private:
-    QJsonDocument loadJson();
+    void getJson();
+    QJsonObject loadJson(QByteArray data);
+
 };
 
 #endif // CHECKUPDATE_H
